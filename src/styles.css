@@ -19,6 +19,7 @@ body {
 }
 
 .main-wrapper {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,8 +27,8 @@ body {
   }
   
   .candidate-image {
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
   }
   
@@ -46,15 +47,16 @@ body {
     margin-bottom: 10px;
   }
   
-  .harris-votes {
-    color: #0000FF;
+  .harris-color {
+    color: #0071E1;
   }
   
-  .trump-votes {
-    color: #FF0000;
+  .trump-color {
+    color: #B24846;
   }
   
   .bars {
+    position: relative;
     display: flex;
     height: 30px;
     width: 100%;
@@ -63,12 +65,51 @@ body {
   
   .bars div {
     height: 100%;
+    margin-right: 2px;
+  }
+  
+  .bars div:last-child {
+    margin-right: 0;
+  }
+  
+  .bars .democrat {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+  
+  .bars .republican {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+
+  .bars::after {
+    content: '';
+    position: absolute;
+    top: -100%; /* Extend above the bars div */
+    left: 50%;
+    height: 200%; /* Extend below the bars div */
+    width: 1px;
+    border-left: 1px dashed #000; /* Adjust color as needed */
+    z-index: 1; /* Ensure the line appears above the bars */
+  }
+
+  .bars::before {
+    content: '270 to win';
+    position: absolute;
+    top: -130%; /* Adjust as needed to position above the bars */
+    left: calc(50% + 5px); /* 5px to the right of the center line */
+    font-size: 12px; /* Adjust as needed */
+    font-weight: 500; /* This sets the font weight to medium */
+    color: #000; /* Adjust color as needed */
+    white-space: nowrap;
+    z-index: 2;
   }
   
   .candidate-names {
     display: flex;
     justify-content: space-between;
-    font-size: 14px;
+    font-size: 20px;
+    font-weight: medium;
   }
   
   .legend-wrapper {
@@ -78,33 +119,44 @@ body {
   .legend {
     display: flex;
     justify-content: center;
+    align-items: center;
     font-size: 12px;
+    margin-top: 10px;
   }
-  
-  .legend span {
+
+  .legend-item {
+    display: flex;
+    align-items: center;
     margin: 0 10px;
   }
-  
-  .lead-3::before, .lead-1::before {
-    content: '';
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
+
+  .legend-symbol {
+    position: relative;
+    width: 16px;
+    height: 16px;
     margin-right: 5px;
   }
-  
-  .lead-3::before {
-    background-color: #0000FF;
+
+  .circle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
   }
-  
-  .lead-1::before {
-    background-color: #99CCFF;
+
+  .circle:first-child {
+    left: 0;
+    top: 0;
   }
-  
-  .republican { background-color: #FF0000; }
-  .lean_trump { background-color: #FF9999; }
-  .battleground_trump { background-color: #FFCCCC; }
-  .battleground_harris { background-color: #CCE5FF; }
-  .lean_harris { background-color: #99CCFF; }
-  .democrat { background-color: #0000FF; }
+
+  .circle:last-child {
+    right: 0;
+    bottom: 0;
+  }
+
+  .republican { background-color: #B24846; }
+  .lean_trump { background-color: #C86D6C; }
+  .battleground_trump { background-color: #DB908A; }
+  .battleground_harris { background-color: #74B8FC; }
+  .lean_harris { background-color: #0F7FEE; }
+  .democrat { background-color: #0071E1; }

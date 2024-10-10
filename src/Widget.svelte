@@ -32,11 +32,11 @@
   
   <main>
     <div class="main-wrapper">
-      <img src="harris.png" alt="Kamala Harris" class="candidate-image" />
+      <img src="harris.png" alt="Kamala Harris" class="candidate-image democrat" />
       <div class="graph-container">
         <div class="vote-totals">
-          <span class="harris-votes">{harrisVotes}</span>
-          <span class="trump-votes">{trumpVotes}</span>
+          <span class="harris-color">{harrisVotes}</span>
+          <span class="trump-color">{trumpVotes}</span>
         </div>
         <div class="bars">
           <div class="democrat" style="width: {getWidth(electoralData.democrat)}"></div>
@@ -47,17 +47,36 @@
           <div class="republican" style="width: {getWidth(electoralData.republican)}"></div>
         </div>
         <div class="candidate-names">
-          <span>Kamala Harris</span>
-          <span>Donald Trump</span>
+          <span class="harris-color">Kamala Harris</span>
+          <span class="trump-color">Donald Trump</span>
         </div>
       </div>
-      <img src="trump.png" alt="Donald Trump" class="candidate-image" />
+      <img src="trump.png" alt="Donald Trump" class="candidate-image republican" />
     </div>
     
     <div class="legend-wrapper">
-      <div class="legend">
-        <span class="lead-3">3+ point lead</span>
-        <span class="lead-1">1-3 point lead</span>
-      </div>
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-symbol">
+                    <div class="circle battleground_harris"></div>
+                    <div class="circle battleground_trump"></div>
+                </div>
+                <span>0-2 point lead</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-symbol">
+                    <div class="circle lean_harris"></div>
+                    <div class="circle lean_trump"></div>
+                </div>
+                <span>2-6 point lead</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-symbol">
+                    <div class="circle democrat"></div>
+                    <div class="circle republican"></div>
+                </div>
+                <span>6+ point lead</span>
+            </div>
+        </div>
     </div>
-  </main>
+</main>
