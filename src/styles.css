@@ -1,0 +1,110 @@
+@font-face {
+    font-family: 'BatonTurbo';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('BatonTurbo Regular');
+}
+@font-face {
+    font-family: 'BatonTurbo';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: local('BatonTurbo Medium');
+}
+
+:root,
+body {
+    font-family: 'BatonTurbo', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.main-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .candidate-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+  
+  .graph-container {
+    flex-grow: 1;
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .vote-totals {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .harris-votes {
+    color: #0000FF;
+  }
+  
+  .trump-votes {
+    color: #FF0000;
+  }
+  
+  .bars {
+    display: flex;
+    height: 30px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .bars div {
+    height: 100%;
+  }
+  
+  .candidate-names {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+  }
+  
+  .legend-wrapper {
+    margin-top: 20px;
+  }
+  
+  .legend {
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+  }
+  
+  .legend span {
+    margin: 0 10px;
+  }
+  
+  .lead-3::before, .lead-1::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  
+  .lead-3::before {
+    background-color: #0000FF;
+  }
+  
+  .lead-1::before {
+    background-color: #99CCFF;
+  }
+  
+  .republican { background-color: #FF0000; }
+  .lean_trump { background-color: #FF9999; }
+  .battleground_trump { background-color: #FFCCCC; }
+  .battleground_harris { background-color: #CCE5FF; }
+  .lean_harris { background-color: #99CCFF; }
+  .democrat { background-color: #0000FF; }
