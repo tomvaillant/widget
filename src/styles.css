@@ -19,6 +19,7 @@ body {
 }
 
 .main-wrapper {
+    padding-top: 10px;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -160,3 +161,29 @@ body {
   .battleground_harris { background-color: #74B8FC; }
   .lean_harris { background-color: #0F7FEE; }
   .democrat { background-color: #0071E1; }
+
+  @media screen and (max-width: 767px) {
+    .main-wrapper {
+      padding-top: 10px;
+    }
+    .graph-container {
+      margin: 0 10px;
+    }
+    .candidate-image {
+      height: 60px;
+      width: 60px;
+    }
+    .vote-totals span {
+      font-size: 14px;
+    }
+    .vote-totals {
+      margin-bottom: 2px;
+    }
+    .bars {
+      margin-bottom: 3px;
+      height: 20px;
+    }
+    .candidate-names {
+      font-size: 14px;
+    }
+  }
