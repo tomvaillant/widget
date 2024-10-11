@@ -1,5 +1,5 @@
 <script>
-    import './styles.css';
+    // import './styles.css';
     import { onMount } from 'svelte';
     import Papa from 'papaparse';
   
@@ -26,8 +26,8 @@
       return votes ? `${(votes / TOTAL_VOTES) * 100}%` : '0%';
     }
   
-    $: trumpVotes = (electoralData.republican || 0) + (electoralData.lean_trump || 0) + (electoralData.battleground_trump || 0);
-    $: harrisVotes = (electoralData.democrat || 0) + (electoralData.lean_harris || 0) + (electoralData.battleground_harris || 0);
+    $: trumpVotes = (electoralData.republican || 0) + (electoralData.lean_trump || 0);
+    $: harrisVotes = (electoralData.democrat || 0) + (electoralData.lean_harris || 0);
   </script>
   
 
@@ -41,8 +41,8 @@
     <div class="bars">
         <div class="democrat" style="width: {getWidth(electoralData.democrat)}"></div>
         <div class="lean_harris" style="width: {getWidth(electoralData.lean_harris)}"></div>
-        <div class="battleground_harris" style="width: {getWidth(electoralData.battleground_harris)}"></div>
-        <div class="battleground_trump" style="width: {getWidth(electoralData.battleground_trump)}"></div>
+        <div class="battleground no-margin" style="width: {getWidth(electoralData.battleground_harris)}"></div>
+        <div class="battleground" style="width: {getWidth(electoralData.battleground_trump)}"></div>
         <div class="lean_trump" style="width: {getWidth(electoralData.lean_trump)}"></div>
         <div class="republican" style="width: {getWidth(electoralData.republican)}"></div>
     </div>
@@ -58,24 +58,23 @@
     <div class="legend">
         <div class="legend-item">
             <div class="legend-symbol">
-                <div class="circle battleground_harris"></div>
-                <div class="circle battleground_trump"></div>
-            </div>
-            <span>0-2 point lead</span>
-        </div>
-        <div class="legend-item">
-            <div class="legend-symbol">
                 <div class="circle lean_harris"></div>
-                <div class="circle lean_trump"></div>
+                <div class="circle democrat"></div>
             </div>
-            <span>2-6 point lead</span>
+            <span>Harris - Sicher: {electoralData.democrat}, Tendenz: {electoralData.lean_harris}</span>
         </div>
         <div class="legend-item">
             <div class="legend-symbol">
-                <div class="circle democrat"></div>
+                <div class="circle battleground"></div>
+            </div>
+            <span>Offenes rennen</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-symbol">
+                <div class="circle lean_trump"></div>
                 <div class="circle republican"></div>
             </div>
-            <span>6+ point lead</span>
+            <span>Trump - Sicher: {electoralData.republican}, Tendenz: {electoralData.lean_trump}</span>
         </div>
     </div>
 </div>
